@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         verbose="true"
+         syntaxCheck="true"
+         stopOnFailure="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         bootstrap="tests/autoload.php"
+        >
+    <testsuites>
+        <testsuite name="Xloit Bridge Zend Doctrine Library Test Suite">
+            <directory>./tests/Xloit/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
