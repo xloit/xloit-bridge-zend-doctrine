@@ -20,7 +20,7 @@
     "xloit/xloit-bridge-doctrine-orm": "^0.1",
     "xloit/xloit-bridge-zend-authentication": "^1.0",
     "xloit/xloit-bridge-zend-form": "^0.0",
-    "zendframework/zend-paginator": "^2.5",
+    "zendframework/zend-paginator": "^2.7",
     "doctrine/doctrine-module": "^1.2",
     "doctrine/doctrine-orm-module": "^1.1"
   },
