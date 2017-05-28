@@ -20,7 +20,7 @@ namespace Xloit\Bridge\Zend\Form\Element;
 use DoctrineModule\Form\Element\ObjectRadio;
 
 /**
- * A {@link DoctrineRadio} class
+ * A {@link DoctrineRadio} class.
  *
  * @package Xloit\Bridge\Zend\Form\Element
  */

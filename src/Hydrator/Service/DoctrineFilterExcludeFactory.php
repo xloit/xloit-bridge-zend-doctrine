@@ -22,23 +22,23 @@ use Interop\Container\ContainerInterface;
 use Xloit\Bridge\Zend\ServiceManager\AbstractFactory;
 
 /**
- * A {@link DoctrineFilterExcludeFactory} class
+ * A {@link DoctrineFilterExcludeFactory} class.
  *
  * @package Xloit\Bridge\Zend\Hydrator\Service
  */
 class DoctrineFilterExcludeFactory extends AbstractFactory
 {
     /**
-     * Create the instance service (v3)
+     * Create the instance service (v3).
      *
-     * @param  ContainerInterface $container
-     * @param  string             $name
-     * @param  null|array         $options
+     * @param ContainerInterface $container
+     * @param string             $name
+     * @param null|array         $options
      *
      * @return PropertyName
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      * @throws \Xloit\Bridge\Zend\ServiceManager\Exception\StateException
-     * @throws \Interop\Container\Exception\NotFoundException
-     * @throws \Interop\Container\Exception\ContainerException
      * @throws \Xloit\Std\Exception\RuntimeException
      */
     public function __invoke(ContainerInterface $container, $name, array $options = null)

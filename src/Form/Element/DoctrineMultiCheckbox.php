@@ -20,7 +20,7 @@ namespace Xloit\Bridge\Zend\Form\Element;
 use DoctrineModule\Form\Element\ObjectMultiCheckbox;
 
 /**
- * A {@link DoctrineMultiCheckbox} class
+ * A {@link DoctrineMultiCheckbox} class.
  *
  * @package Xloit\Bridge\Zend\Form\Element
  */

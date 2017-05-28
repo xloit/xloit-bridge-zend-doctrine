@@ -22,21 +22,21 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
 
 /**
- * A {@link DoctrineOptions} class
+ * A {@link DoctrineOptions} class.
  *
  * @package Xloit\Bridge\Zend\Authentication\Options
  */
 class DoctrineOptions extends AuthenticationOptions
 {
     /**
-     * A valid object implementing ObjectRepository interface (or ObjectManager/identityClass)
+     * A valid object implementing ObjectRepository interface (or ObjectManager/identityClass).
      *
      * @var EntityManager
      */
     protected $objectManager;
 
     /**
-     * A valid object implementing ObjectRepository interface (or ObjectManager/identityClass)
+     * A valid object implementing ObjectRepository interface (or ObjectManager/identityClass).
      *
      * @var EntityRepository
      */
@@ -44,7 +44,7 @@ class DoctrineOptions extends AuthenticationOptions
 
     /**
      * If an objectManager is not supplied, this metadata will be used by
-     * {@link \Xloit\Bridge\Zend\Authentication\Adapter\Doctrine}
+     * {@link \Xloit\Bridge\Zend\Authentication\Adapter\Doctrine}.
      *
      * @var ClassMetadata
      */
@@ -62,7 +62,7 @@ class DoctrineOptions extends AuthenticationOptions
      *
      * @param EntityManager $objectManager
      *
-     * @return static
+     * @return $this
      */
     public function setObjectManager(EntityManager $objectManager)
     {
@@ -86,7 +86,7 @@ class DoctrineOptions extends AuthenticationOptions
      *
      * @param EntityRepository $objectRepository
      *
-     * @return static
+     * @return $this
      */
     public function setObjectRepository(EntityRepository $objectRepository)
     {
@@ -117,7 +117,7 @@ class DoctrineOptions extends AuthenticationOptions
      *
      * @param ClassMetadata $classMetadata
      *
-     * @return static
+     * @return $this
      */
     public function setClassMetadata(ClassMetadata $classMetadata)
     {
@@ -145,7 +145,7 @@ class DoctrineOptions extends AuthenticationOptions
      *
      * @param string $identityClass
      *
-     * @return static
+     * @return $this
      */
     public function setIdentityClass($identityClass)
     {

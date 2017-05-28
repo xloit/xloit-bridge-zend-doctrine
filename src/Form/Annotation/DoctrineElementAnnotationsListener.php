@@ -26,14 +26,14 @@ use Zend\Form\FormElementManager\FormElementManagerV2Polyfill as FormElementMana
 use Zend\Validator\Callback;
 
 /**
- * A {@link DoctrineElementAnnotationsListener} class
+ * A {@link DoctrineElementAnnotationsListener} class.
  *
  * @package Xloit\Bridge\Zend\Form\Annotation
  */
 class DoctrineElementAnnotationsListener extends ElementAnnotationsListener
 {
     /**
-     * Holds the formElementManager value
+     * Holds the formElementManager value.
      *
      * @var FormElementManager
      */
@@ -53,7 +53,7 @@ class DoctrineElementAnnotationsListener extends ElementAnnotationsListener
     }
 
     /**
-     * Returns the FormElementManager value
+     * Returns the FormElementManager value.
      *
      * @return FormElementManager
      */
@@ -63,11 +63,11 @@ class DoctrineElementAnnotationsListener extends ElementAnnotationsListener
     }
 
     /**
-     * Sets the FormElementManager value
+     * Sets the FormElementManager value.
      *
      * @param FormElementManager $formElementManager
      *
-     * @return static
+     * @return $this
      */
     public function setFormElementManager($formElementManager)
     {
@@ -78,7 +78,7 @@ class DoctrineElementAnnotationsListener extends ElementAnnotationsListener
 
     /**
      * Exclude GENERATOR_TYPE_IDENTITY && GENERATOR_TYPE_CUSTOM.
-     * Because most of the time they are custom auto-increment
+     * Because most of the time they are custom auto-increment.
      *
      * @internal
      *
@@ -302,8 +302,8 @@ class DoctrineElementAnnotationsListener extends ElementAnnotationsListener
     /**
      *
      *
-     * @param  string $value
-     * @param  array  $options
+     * @param string $value
+     * @param array  $options
      *
      * @return bool
      */

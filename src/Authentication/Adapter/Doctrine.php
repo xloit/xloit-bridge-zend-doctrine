@@ -23,9 +23,11 @@ use Xloit\Bridge\Zend\Authentication\Options\DoctrineOptions;
 use Zend\Crypt\Password\PasswordInterface;
 
 /**
- * A {@link Doctrine} class
+ * A {@link Doctrine} class.
  *
  * @package Xloit\Bridge\Zend\Authentication\Adapter
+ *
+ * @method DoctrineOptions getOptions()
  */
 class Doctrine extends AbstractAdapter
 {
@@ -34,7 +36,7 @@ class Doctrine extends AbstractAdapter
      *
      * @param  array|DoctrineOptions $options
      *
-     * @return static
+     * @return $this
      */
     public function setOptions($options)
     {
@@ -48,21 +50,11 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     *
-     *
-     * @return DoctrineOptions
-     */
-    public function getOptions()
-    {
-        return $this->options;
-    }
-
-    /**
-     * Performs an authentication attempt
+     * Performs an authentication attempt.
      *
      * @return AuthenticationResult
-     * @throws \Zend\Crypt\Password\Exception\InvalidArgumentException
      * @throws \Xloit\Bridge\Zend\Authentication\Exception\RuntimeException
+     * @throws \Zend\Crypt\Password\Exception\InvalidArgumentException
      */
     public function authenticate()
     {
@@ -93,7 +85,7 @@ class Doctrine extends AbstractAdapter
      * This method attempts to validate that the record in the result set is indeed a record that matched the identity
      * provided to this adapter.
      *
-     * @param  mixed $identity
+     * @param mixed $identity
      *
      * @return AuthenticationResult
      * @throws \Xloit\Bridge\Zend\Authentication\Exception\RuntimeException

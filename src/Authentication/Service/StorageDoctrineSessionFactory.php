@@ -21,7 +21,7 @@ use Interop\Container\ContainerInterface;
 use Xloit\Bridge\Zend\Authentication\Storage\DoctrineSession;
 
 /**
- * A {@link StorageDoctrineSessionFactory} class
+ * A {@link StorageDoctrineSessionFactory} class.
  *
  * @package Xloit\Bridge\Zend\Authentication\Service
  */
@@ -35,11 +35,11 @@ class StorageDoctrineSessionFactory extends StorageSessionFactory
      * @param array              $options
      *
      * @return DoctrineSession
-     * @throws \Zend\Session\Exception\InvalidArgumentException
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      * @throws \Xloit\Bridge\Zend\ServiceManager\Exception\StateException
-     * @throws \Interop\Container\Exception\NotFoundException
-     * @throws \Interop\Container\Exception\ContainerException
      * @throws \Xloit\Std\Exception\RuntimeException
+     * @throws \Zend\Session\Exception\InvalidArgumentException
      */
     public function __invoke(ContainerInterface $container, $name, array $options = null)
     {

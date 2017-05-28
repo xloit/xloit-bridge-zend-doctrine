@@ -33,12 +33,13 @@ class ElementInitializer extends AbstractServiceInitializer
     /**
      * Initialize the given instance.
      *
-     * @param  ContainerInterface $container
-     * @param  mixed              $instance
+     * @param ContainerInterface $container
+     * @param mixed              $instance
      *
      * @return void
-     * @throws \Interop\Container\Exception\NotFoundException
-     * @throws \Interop\Container\Exception\ContainerException
+     * @throws \ReflectionException
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function __invoke(ContainerInterface $container, $instance)
     {

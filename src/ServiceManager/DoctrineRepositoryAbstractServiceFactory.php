@@ -1,9 +1,18 @@
 <?php
 /**
- * This source file is part of Virtupeer project.
+ * This source file is part of Xloit project.
  *
- * @link      https://virtupeer.com
- * @copyright Copyright (c) 2016, Virtupeer. All rights reserved.
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License that is bundled with this package in the file LICENSE.
+ * It is also available through the world-wide-web at this URL:
+ * <http://www.opensource.org/licenses/mit-license.php>
+ * If you did not receive a copy of the license and are unable to obtain it through the world-wide-web,
+ * please send an email to <license@xloit.com> so we can send you a copy immediately.
+ *
+ * @license   MIT
+ * @link      http://xloit.com
+ * @copyright Copyright (c) 2016, Xloit. All rights reserved.
  */
 
 namespace Xloit\Bridge\Zend\ServiceManager;
@@ -11,6 +20,10 @@ namespace Xloit\Bridge\Zend\ServiceManager;
 use Interop\Container\ContainerInterface;
 use Zend\Filter\FilterChain;
 use Zend\Filter\FilterInterface;
+use Zend\Filter\Word\SeparatorToSeparator;
+use Zend\Filter\Word\DashToCamelCase;
+use Zend\Filter\UpperCaseWords;
+use Zend\Filter\Word\CamelCaseToDash;
 
 /**
  * A {@link DoctrineRepositoryAbstractServiceFactory} class.
@@ -20,32 +33,25 @@ use Zend\Filter\FilterInterface;
 class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
 {
     /**
-     * Holds the object Manager Name
+     * Holds the object Manager Name.
      *
      * @var string
      */
     protected $objectManagerName = 'doctrine.entitymanager.orm_default';
 
     /**
-     * Holds the object Manager instance
+     * Holds the object Manager instance.
      *
      * @var \Doctrine\ORM\EntityManager
      */
     protected $objectManager;
 
     /**
-     * Holds the namespace value
+     * Holds the prefixServiceName value.
      *
      * @var string
      */
-    protected $namespace = 'Xloit';
-
-    /**
-     * Holds the prefixServiceName value
-     *
-     * @var string
-     */
-    protected $prefixServiceName = 'Xloit';
+    protected $prefixServiceName;
 
     /**
      * Holds the filter object
@@ -63,8 +69,8 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
      * @param string $pattern
      */
     public function __construct(
-        $namespace = null,
-        $prefixServiceName = null,
+        $namespace = 'Xloit',
+        $prefixServiceName = 'Xloit',
         $objectManagerName = null,
         $pattern = "/^PREFIX_SERVICE_NAME\.doctrine\.repository\.(?P<entityName>[a-zA-Z0-9_\.]+)$/"
     ) {
@@ -72,15 +78,15 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
             $this->objectManagerName = $objectManagerName;
         }
 
-        if (null !== $namespace) {
-            $this->prefixServiceName = $namespace;
+        if (null !== $prefixServiceName) {
+            $this->prefixServiceName = $prefixServiceName;
         }
 
         $this->filter = new FilterChain(
             [
                 'filters' => [
                     [
-                        'name'     => 'Zend\Filter\Word\SeparatorToSeparator',
+                        'name'     => SeparatorToSeparator::class,
                         'priority' => 1,
                         'options'  => [
                             'search_separator'      => ' ',
@@ -88,20 +94,20 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
                         ]
                     ],
                     [
-                        'name'     => 'Zend\Filter\Word\DashToCamelCase',
+                        'name'     => DashToCamelCase::class,
                         'priority' => 2
                     ],
                     [
-                        'name'     => 'Zend\Filter\FilterChain',
+                        'name'     => FilterChain::class,
                         'priority' => 3,
                         'options'  => [
                             'filters' => [
                                 [
-                                    'name'     => 'Zend\Filter\UpperCaseWords',
+                                    'name'     => UpperCaseWords::class,
                                     'priority' => 1
                                 ],
                                 [
-                                    'name'     => 'Zend\Filter\Word\SeparatorToSeparator',
+                                    'name'     => SeparatorToSeparator::class,
                                     'priority' => 2,
                                     'options'  => [
                                         'search_separator'      => '.',
@@ -112,18 +118,18 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
                         ]
                     ],
                     [
-                        'name'     => 'Zend\Filter\Word\CamelCaseToDash',
+                        'name'     => CamelCaseToDash::class,
                         'priority' => 4
                     ]
                 ]
             ]
         );
 
-        parent::__construct($prefixServiceName, $pattern);
+        parent::__construct($namespace, $pattern);
     }
 
     /**
-     * Returns the Filter value
+     * Returns the Filter value.
      *
      * @return FilterInterface
      */
@@ -133,11 +139,11 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
     }
 
     /**
-     * Sets the Filter value
+     * Sets the Filter value.
      *
      * @param FilterInterface $filter
      *
-     * @return static
+     * @return $this
      */
     public function setFilter(FilterInterface $filter)
     {
@@ -147,7 +153,7 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
     }
 
     /**
-     * Returns the ObjectManagerName value
+     * Returns the ObjectManagerName value.
      *
      * @return string
      */
@@ -157,11 +163,11 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
     }
 
     /**
-     * Sets the ObjectManagerName value
+     * Sets the ObjectManagerName value.
      *
      * @param string $objectManagerName
      *
-     * @return static
+     * @return $this
      */
     public function setObjectManagerName($objectManagerName)
     {
@@ -173,15 +179,14 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
     /**
      * Create an object.
      *
-     * @param  ContainerInterface $container
-     * @param  string             $requestedName
-     * @param  null|array         $options
+     * @param ContainerInterface $container
+     * @param string             $requestedName
+     * @param null|array         $options
      *
      * @return mixed
-     * @throws \Interop\Container\Exception\ContainerException
-     * @throws \Interop\Container\Exception\NotFoundException
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      * @throws \Xloit\Bridge\Zend\ServiceManager\Exception\ServiceNotFoundException
-     * @throws \Xloit\Std\Exception\RuntimeException
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
@@ -242,10 +247,7 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
      * @param ContainerInterface $container
      * @param string             $name
      *
-     * @return boolean|array
-     * @throws \Interop\Container\Exception\ContainerException
-     * @throws \Interop\Container\Exception\NotFoundException
-     * @throws \Xloit\Std\Exception\RuntimeException
+     * @return false|array
      */
     public function getServiceMapping(ContainerInterface $container, $name)
     {

@@ -22,7 +22,7 @@ use Xloit\Bridge\Zend\Authentication\Options\DoctrineOptions;
 use Xloit\Bridge\Zend\ServiceManager\AbstractFactory;
 
 /**
- * An {@link OptionsDoctrineFactory} class
+ * An {@link OptionsDoctrineFactory} class.
  *
  * @package Xloit\Bridge\Zend\Authentication\Service
  */
@@ -36,14 +36,14 @@ class OptionsDoctrineFactory extends AbstractFactory
      * @param array              $options
      *
      * @return DoctrineOptions
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      * @throws \Xloit\Bridge\Zend\ServiceManager\Exception\StateException
-     * @throws \Interop\Container\Exception\NotFoundException
-     * @throws \Interop\Container\Exception\ContainerException
      * @throws \Xloit\Std\Exception\RuntimeException
      */
     public function __invoke(ContainerInterface $container, $name, array $options = null)
     {
-        $options = $this->getOptions(true);
+        $options = $options ?: $this->getOptions(true);
 
         if (!$options) {
             $options = [];

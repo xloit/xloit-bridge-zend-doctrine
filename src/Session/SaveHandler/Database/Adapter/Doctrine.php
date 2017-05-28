@@ -24,7 +24,7 @@ use Doctrine\ORM\EntityRepository;
 use Xloit\Bridge\Zend\Session\Exception;
 
 /**
- * A {@link Doctrine} class
+ * A {@link Doctrine} class.
  *
  * @package Xloit\Bridge\Zend\Session\SaveHandler\Database\Adapter
  */
@@ -38,7 +38,7 @@ class Doctrine extends AbstractAdapter
     protected $repository;
 
     /**
-     * Select all entities
+     * Select all entities.
      *
      * @return array
      */
@@ -75,11 +75,11 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Sets the Repository value
+     * Sets the Repository value.
      *
      * @param EntityRepository $repository
      *
-     * @return static
+     * @return $this
      */
     public function setRepository($repository)
     {
@@ -101,16 +101,14 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Insert a new record
+     * Insert a new record.
      *
      * @param mixed $sessionEntity
      *
      * @return mixed
-     * @throws \Xloit\Bridge\Zend\Session\Exception\InvalidArgumentException
-     * @throws \InvalidArgumentException
-     * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      * @throws \Doctrine\ORM\ORMInvalidArgumentException
+     * @throws \Xloit\Bridge\Zend\Session\Exception\InvalidArgumentException
      */
     public function insert($sessionEntity)
     {
@@ -130,17 +128,15 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Update a record
+     * Update a record.
      *
      * @param mixed $sessionEntity
      * @param array $sessionData
      *
      * @return mixed
-     * @throws \Xloit\Bridge\Zend\Session\Exception\InvalidArgumentException
-     * @throws \InvalidArgumentException
-     * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      * @throws \Doctrine\ORM\ORMInvalidArgumentException
+     * @throws \Xloit\Bridge\Zend\Session\Exception\InvalidArgumentException
      */
     public function update($sessionEntity, $sessionData)
     {
@@ -161,17 +157,16 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Delete a record
+     * Delete a record.
      *
      * @param mixed $sessionEntity
      *
      * @return void
+     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\ORMInvalidArgumentException
      * @throws \Doctrine\ORM\TransactionRequiredException
      * @throws \Xloit\Bridge\Zend\Session\Exception\InvalidArgumentException
-     * @throws \InvalidArgumentException
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
-     * @throws \Doctrine\ORM\ORMInvalidArgumentException
      */
     public function delete($sessionEntity)
     {
@@ -185,22 +180,22 @@ class Doctrine extends AbstractAdapter
         $this->validateEntity($sessionEntity, __METHOD__);
 
         $sessionEntity = $storageManager->find($this->options->getClassName(), $this->getIdValue($sessionEntity));
+
         $storageManager->remove($sessionEntity);
         $storageManager->flush($sessionEntity);
     }
 
     /**
-     * Garbage Collection - remove old session data older than $maxlifetime (in seconds)
+     * Garbage Collection - remove old session data older than $maxlifetime (in seconds).
      *
      * @param int $maxlifetime
      *
      * @return bool
+     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\ORMInvalidArgumentException
      * @throws \Doctrine\ORM\TransactionRequiredException
      * @throws \Xloit\Bridge\Zend\Session\Exception\InvalidArgumentException
-     * @throws \InvalidArgumentException
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
-     * @throws \Doctrine\ORM\ORMInvalidArgumentException
      */
     public function gc($maxlifetime)
     {
@@ -218,7 +213,7 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Returns the session id
+     * Returns the session id.
      *
      * @param mixed $sessionEntity
      *
@@ -234,7 +229,7 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Returns the session created Unix timestamp
+     * Returns the session created Unix timestamp.
      *
      * @param mixed $sessionEntity
      *
@@ -250,7 +245,7 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Returns the session data
+     * Returns the session data.
      *
      * @param mixed $sessionEntity
      *
@@ -266,7 +261,7 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Returns the session name
+     * Returns the session name.
      *
      * @param mixed $sessionEntity
      *
@@ -282,7 +277,7 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Returns the session lifetime
+     * Returns the session lifetime.
      *
      * @param mixed $sessionEntity
      *
@@ -298,7 +293,7 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Returns the session modified Unix timestamp
+     * Returns the session modified Unix timestamp.
      *
      * @param mixed $sessionEntity
      *
@@ -314,7 +309,7 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Returns the session modified Unix timestamp
+     * Returns the session modified Unix timestamp.
      *
      * @param array $data
      *
@@ -351,7 +346,7 @@ class Doctrine extends AbstractAdapter
     }
 
     /**
-     * Indicates whether the given entity is valid
+     * Indicates whether the given entity is valid.
      *
      * @internal
      *
@@ -359,7 +354,7 @@ class Doctrine extends AbstractAdapter
      * @param string $method
      *
      * @return void
-     * @throws Exception\InvalidArgumentException
+     * @throws \Xloit\Bridge\Zend\Session\Exception\InvalidArgumentException
      */
     private function validateEntity($entity, $method)
     {

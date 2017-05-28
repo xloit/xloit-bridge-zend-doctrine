@@ -17,14 +17,13 @@
 
 namespace Xloit\Bridge\Zend\Doctrine\ORM;
 
-use Doctrine\ORM\Query;
 use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator as DoctrinePaginatorAdapter;
 use Xloit\Bridge\Doctrine\ORM\EntityQueryBuilder as BaseEntityQueryBuilder;
 use Xloit\Bridge\Doctrine\ORM\EntityRepository as BaseEntityRepository;
 use Zend\Paginator\Paginator;
 
 /**
- * A {@link EntityRepository} class
+ * An {@link EntityRepository} class.
  *
  * @package Xloit\Bridge\Zend\Doctrine\ORM
  */

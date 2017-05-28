@@ -24,14 +24,14 @@ use Zend\Form\Factory;
 use Zend\Form\FormElementManager\FormElementManagerV2Polyfill as FormElementManager;
 
 /**
- * A {@link DoctrineAnnotationBuilder} class
+ * A {@link DoctrineAnnotationBuilder} class.
  *
  * @package Xloit\Bridge\Zend\Form\Annotation
  */
 class DoctrineAnnotationBuilder extends BaseDoctrineAnnotationBuilder
 {
     /**
-     * Holds the formElementManager value
+     * Holds the formElementManager value.
      *
      * @var FormElementManager
      */
@@ -53,7 +53,7 @@ class DoctrineAnnotationBuilder extends BaseDoctrineAnnotationBuilder
     }
 
     /**
-     * Returns the FormElementManager value
+     * Returns the FormElementManager value.
      *
      * @return FormElementManager
      */
@@ -63,11 +63,11 @@ class DoctrineAnnotationBuilder extends BaseDoctrineAnnotationBuilder
     }
 
     /**
-     * Sets the FormElementManager value
+     * Sets the FormElementManager value.
      *
      * @param FormElementManager $formElementManager
      *
-     * @return static
+     * @return $this
      */
     public function setFormElementManager($formElementManager)
     {
@@ -81,7 +81,7 @@ class DoctrineAnnotationBuilder extends BaseDoctrineAnnotationBuilder
      *
      * @param EventManagerInterface $events
      *
-     * @return static
+     * @return $this
      */
     public function setEventManager(EventManagerInterface $events)
     {

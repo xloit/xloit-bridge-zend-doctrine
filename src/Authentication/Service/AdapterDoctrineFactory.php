@@ -22,7 +22,7 @@ use Xloit\Bridge\Zend\Authentication\Adapter\Doctrine as DoctrineAdapter;
 use Xloit\Bridge\Zend\ServiceManager\AbstractFactory;
 
 /**
- * An {@link AdapterDoctrineFactory} class
+ * An {@link AdapterDoctrineFactory} class.
  *
  * @package Xloit\Bridge\Zend\Authentication\Service
  */
@@ -36,9 +36,9 @@ class AdapterDoctrineFactory extends AbstractFactory
      * @param array              $options
      *
      * @return DoctrineAdapter
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      * @throws \Xloit\Bridge\Zend\ServiceManager\Exception\StateException
-     * @throws \Interop\Container\Exception\NotFoundException
-     * @throws \Interop\Container\Exception\ContainerException
      * @throws \Xloit\Std\Exception\RuntimeException
      */
     public function __invoke(ContainerInterface $container, $name, array $options = null)

@@ -40,7 +40,7 @@ class FormDoctrine extends Form
      * Ensures state is ready for use Marshals the input filter, to ensure validation error messages are available,
      * and prepares any elements and/or fieldset that require preparation.
      *
-     * @return static
+     * @return $this
      * @throws \Zend\Form\Exception\InvalidArgumentException
      */
     public function prepare()

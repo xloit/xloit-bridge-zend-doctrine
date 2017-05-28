@@ -22,29 +22,29 @@ use Xloit\Bridge\Zend\ServiceManager\AbstractFactory;
 use Xloit\Bridge\Zend\Session\SaveHandler\Database\Adapter\Doctrine;
 
 /**
- * A {@link SessionSaveHandlerDoctrineAdapterFactory} class
+ * A {@link SessionSaveHandlerDoctrineAdapterFactory} class.
  *
  * @package Xloit\Bridge\Zend\Session\Service
  */
 class SessionSaveHandlerDoctrineAdapterFactory extends AbstractFactory
 {
     /**
-     * Create the instance service (v3)
+     * Create the instance service (v3).
      *
-     * @param  ContainerInterface $container
-     * @param  string             $name
-     * @param  null|array         $options
+     * @param ContainerInterface $container
+     * @param string             $name
+     * @param null|array         $options
      *
      * @return Doctrine
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      * @throws \Xloit\Bridge\Zend\ServiceManager\Exception\StateException
-     * @throws \Interop\Container\Exception\NotFoundException
-     * @throws \Interop\Container\Exception\ContainerException
      * @throws \Xloit\Std\Exception\RuntimeException
      */
     public function __invoke(ContainerInterface $container, $name, array $options = null)
     {
         $storageManager = $this->getOption('storageManager');
-        $options        = $this->getOption('options');
+        $options        = $options ?: $this->getOption('options');
 
         return new Doctrine($storageManager, $options);
     }

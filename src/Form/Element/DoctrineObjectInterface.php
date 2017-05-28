@@ -18,7 +18,7 @@
 namespace Xloit\Bridge\Zend\Form\Element;
 
 /**
- * A {@link DoctrineObjectInterface} interface
+ * A {@link DoctrineObjectInterface} interface.
  *
  * @package Xloit\Bridge\Zend\Form\Element
  */

@@ -22,10 +22,11 @@ use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator as AbstractDoctrinePag
 use Xloit\Bridge\Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
- * A {@link DoctrinePaginator} class
+ * A {@link DoctrinePaginator} class.
  *
  * @package Xloit\Bridge\Zend\Paginator\Adapter
  *
+ * @method DoctrinePaginator setPaginator(Paginator $paginator)
  * @method Paginator getPaginator()
  */
 class DoctrinePaginator extends AbstractDoctrinePaginator
@@ -38,20 +39,6 @@ class DoctrinePaginator extends AbstractDoctrinePaginator
     public function __construct(Paginator $paginator)
     {
         parent::__construct($paginator);
-    }
-
-    /**
-     *
-     *
-     * @param  Paginator $paginator
-     *
-     * @return static
-     */
-    public function setPaginator(Paginator $paginator)
-    {
-        $this->paginator = $paginator;
-
-        return $this;
     }
 
     /**

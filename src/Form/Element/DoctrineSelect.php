@@ -18,23 +18,21 @@
 namespace Xloit\Bridge\Zend\Form\Element;
 
 use DoctrineModule\Form\Element\ObjectSelect;
-use Zend\Form\Exception\InvalidArgumentException;
 
 /**
- * A {@link DoctrineSelect} class
+ * A {@link DoctrineSelect} class.
  *
  * @package Xloit\Bridge\Zend\Form\Element
  */
 class DoctrineSelect extends ObjectSelect implements DoctrineObjectInterface
 {
     /**
-     * Constructor to prevent {@link DoctrineSelect} from being loaded more
-     * than once.
+     * Constructor to prevent {@link DoctrineSelect} from being loaded more than once.
      *
      * @param int|string $name
      * @param array      $options
      *
-     * @throws InvalidArgumentException
+     * @throws \Zend\Form\Exception\InvalidArgumentException
      */
     public function __construct($name = null, array $options = [])
     {

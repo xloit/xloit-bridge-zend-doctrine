@@ -23,35 +23,35 @@ use Doctrine\ORM\EntityRepository;
 use Xloit\Std\Interop\Object\EntityInterface;
 
 /**
- * A {@link DoctrineSession} class
+ * A {@link DoctrineSession} class.
  *
  * @package Xloit\Bridge\Zend\Authentication\Storage
  */
 class DoctrineSession extends Session
 {
     /**
-     * A valid object implementing ObjectRepository interface (or ObjectManager/identityClass)
+     * A valid object implementing ObjectRepository interface (or ObjectManager/identityClass).
      *
      * @var ObjectManager
      */
     protected $objectManager;
 
     /**
-     * A valid object implementing ObjectRepository interface (or ObjectManager/identityClass)
+     * A valid object implementing ObjectRepository interface (or ObjectManager/identityClass).
      *
      * @var EntityRepository
      */
     protected $objectRepository;
 
     /**
-     * If an objectManager is not supplied, this metadata will be used by {@link DoctrineSession}
+     * If an objectManager is not supplied, this metadata will be used by {@link DoctrineSession}.
      *
      * @var ClassMetadata
      */
     protected $classMetadata;
 
     /**
-     * Entity's class name
+     * Entity's class name.
      *
      * @var string
      */
@@ -79,7 +79,7 @@ class DoctrineSession extends Session
      *
      * @param EntityRepository $objectRepository
      *
-     * @return static
+     * @return $this
      */
     public function setObjectRepository(EntityRepository $objectRepository)
     {
@@ -104,7 +104,7 @@ class DoctrineSession extends Session
      *
      * @param ObjectManager $objectManager
      *
-     * @return static
+     * @return $this
      */
     public function setObjectManager($objectManager)
     {
@@ -128,7 +128,7 @@ class DoctrineSession extends Session
      *
      * @param string $identityClass
      *
-     * @return static
+     * @return $this
      */
     public function setIdentityClass($identityClass)
     {
@@ -158,7 +158,7 @@ class DoctrineSession extends Session
      *
      * @param ClassMetadata $classMetadata
      *
-     * @return static
+     * @return $this
      */
     public function setClassMetadata(ClassMetadata $classMetadata)
     {
@@ -169,7 +169,7 @@ class DoctrineSession extends Session
 
     /**
      * Returns the contents of storage. Behavior is undefined when storage is empty.
-     * This function assumes that the storage only contains identifier values
+     * This function assumes that the storage only contains identifier values.
      *
      * @return mixed
      */
@@ -185,7 +185,7 @@ class DoctrineSession extends Session
     }
 
     /**
-     * Defined by {@link StorageInterface}
+     * Defined by {@link StorageInterface}.
      *
      * @param mixed $identity
      *
