@@ -1,42 +1,42 @@
 {
-    "name": "xloit/xloit-bridge-zend-doctrine",
-    "type": "library",
-    "description": "Xloit Bridge Zend Doctrine Library",
-    "keywords": [
-        "xloit",
-        "zend-doctrine",
-        "library"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Yudha Setiawan",
-            "email": "me@yudhasetiawan.com",
-            "homepage": "http://yudhasetiawan.com/"
-        }
-    ],
-    "require": {
-        "php": "^5.4 || ^7.0",
-        "xloit/xloit-bridge-doctrine-orm": "^0.1",
-        "xloit/xloit-bridge-zend-authentication": "^1.0",
-        "xloit/xloit-bridge-zend-form": "^0.0",
-        "zendframework/zend-paginator": "^2.5",
-        "doctrine/doctrine-module": "^1.2",
-        "doctrine/doctrine-orm-module": "^1.1"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.0"
-    },
-    "suggest": {
-    },
-    "autoload": {
-        "psr-4": {
-            "Xloit\\Bridge\\Zend\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-0": {
-            "Xloit\\Bridge\\Zend\\Tests\\": "tests/"
-        }
+  "name": "xloit/xloit-bridge-zend-doctrine",
+  "type": "library",
+  "description": "Xloit Bridge Zend Doctrine Library",
+  "keywords": [
+    "xloit",
+    "zend-doctrine",
+    "library"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yudha Setiawan",
+      "email": "me@yudhasetiawan.com",
+      "homepage": "http://yudhasetiawan.com/"
     }
+  ],
+  "require": {
+    "php": "^5.4 || ^7.0",
+    "xloit/xloit-bridge-doctrine-orm": "^0.1",
+    "xloit/xloit-bridge-zend-authentication": "^1.0",
+    "xloit/xloit-bridge-zend-form": "^0.0",
+    "zendframework/zend-paginator": "^2.5",
+    "doctrine/doctrine-module": "^1.2",
+    "doctrine/doctrine-orm-module": "^1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  },
+  "suggest": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Xloit\\Bridge\\Zend\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "Xloit\\Bridge\\Zend\\Tests\\": "tests/"
+    }
+  }
 }
