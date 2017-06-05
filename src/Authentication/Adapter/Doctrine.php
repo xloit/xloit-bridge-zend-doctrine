@@ -34,7 +34,7 @@ class Doctrine extends AbstractAdapter
     /**
      *
      *
-     * @param  array|DoctrineOptions $options
+     * @param array|DoctrineOptions $options
      *
      * @return $this
      */

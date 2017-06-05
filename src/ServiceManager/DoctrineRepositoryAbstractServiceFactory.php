@@ -54,7 +54,7 @@ class DoctrineRepositoryAbstractServiceFactory extends AbstractServiceFactory
     protected $prefixServiceName;
 
     /**
-     * Holds the filter object
+     * Holds the filter object.
      *
      * @var FilterInterface
      */
