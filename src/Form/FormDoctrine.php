@@ -51,7 +51,9 @@ class FormDoctrine extends Form
 
         $this->prepareObjectManager();
 
-        return parent::prepare();
+        parent::prepare();
+
+        return $this;
     }
 
     /**
